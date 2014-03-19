@@ -12,15 +12,15 @@ set(common_SOURCES clipboard.c context.c gamma.c init.c input.c joystick.c
                    monitor.c time.c window.c)
 
 if (_GLFW_COCOA)
-    set(glfw_HEADERS ${common_HEADERS} cocoa_platform.h)
+    set(glfw_HEADERS ${common_HEADERS} cocoa_platform.h iokit_joystick.h)
     set(glfw_SOURCES ${common_SOURCES} cocoa_clipboard.m cocoa_gamma.c
-                     cocoa_init.m cocoa_joystick.m cocoa_monitor.m cocoa_time.c
-                     cocoa_window.m)
+                     cocoa_init.m cocoa_monitor.m cocoa_time.c cocoa_window.m
+                     iokit_joystick.m)
 elseif (_GLFW_WIN32)
-    set(glfw_HEADERS ${common_HEADERS} win32_platform.h)
+    set(glfw_HEADERS ${common_HEADERS} win32_platform.h winmm_joystick.h)
     set(glfw_SOURCES ${common_SOURCES} win32_clipboard.c win32_gamma.c
-                     win32_init.c win32_joystick.c win32_monitor.c win32_time.c
-                     win32_window.c)
+                     win32_init.c win32_monitor.c win32_time.c win32_window.c
+                     winmm_joystick.c)
 elseif (_GLFW_X11)
     set(glfw_HEADERS ${common_HEADERS} x11_platform.h)
     set(glfw_SOURCES ${common_SOURCES} x11_clipboard.c x11_gamma.c x11_init.c
