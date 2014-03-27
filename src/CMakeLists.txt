@@ -14,8 +14,8 @@ set(common_SOURCES clipboard.c context.c gamma.c init.c input.c joystick.c
 if (_GLFW_COCOA)
     set(glfw_HEADERS ${common_HEADERS} cocoa_platform.h iokit_joystick.h)
     set(glfw_SOURCES ${common_SOURCES} cocoa_clipboard.m cocoa_gamma.c
-                     cocoa_init.m cocoa_monitor.m cocoa_time.c cocoa_window.m
-                     iokit_joystick.m)
+                     cocoa_init.m cocoa_monitor.m cocoa_window.m
+                     iokit_joystick.m mach_time.c)
 elseif (_GLFW_WIN32)
     set(glfw_HEADERS ${common_HEADERS} win32_platform.h winmm_joystick.h)
     set(glfw_SOURCES ${common_SOURCES} win32_clipboard.c win32_gamma.c
